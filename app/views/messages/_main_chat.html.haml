@@ -1,0 +1,30 @@
+.Chat-main
+  .Chat-main__header
+    .Chat-main__header__group
+      %p.Chat-main__header__group__name test
+      .Chat-main__header__group__member
+        %p.Chat-main__header__group__member__headline Member：
+        %ul.Chat-main__header__group__member__list
+          %li.Chat-main__header__group__member__list__name masa
+    .Chat-main__header__edit
+      = link_to "#", class: "Chat-main__header__edit__btn" do
+        Edit
+  .Chat-main__messages
+    .Chat-main__messages__message
+      .Chat-main__messages__message__title
+        %p.Chat-main__messages__message__title__name masa
+        %p.Chat-main__messages__message__title__date 2019/11/20(Wed) 17:43:01
+      %p.Chat-main__messages__message__content おはよう！
+    .Chat-main__messages__message
+      .Chat-main__messages__message__title
+        %p.Chat-main__messages__message__title__name masa
+        %p.Chat-main__messages__message__title__date 2019/11/20(Wed) 17:43:34
+      %p.Chat-main__messages__message__content 今日は夜から雨
+  .Chat-main__footer
+    %form.Chat-main__footer__form
+      .Chat-main__footer__form__content
+        %input.Chat-main__footer__form__content__message{"placeholder": "type a message", "type": "text"}
+        %label.Chat-main__footer__form__content__image
+          =icon('far', 'image')
+          %input.Chat-main__footer__form__content__image__file{type: "file"}
+      %input.Chat-main__footer__form__send-btn{"type": "submit", "value": "Send"}

@@ -1,12 +1,13 @@
 .Side-bar
   .Side-bar__header
     .Side-bar__header__item
-      %p.Side-bar__header__item__name masa
+      %p.Side-bar__header__item__name
+        = current_user.name
       .Side-bar__header__item__icons
         = link_to "#" do
           = icon('far', 'edit')
           %span<>
-        = link_to "#" do
+        = link_to edit_user_path(current_user) do
           = icon('fas', 'cog')
   .Side-bar__groups
     .Side-bar__groups__group

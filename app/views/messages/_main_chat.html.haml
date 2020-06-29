@@ -1,30 +1,24 @@
 .Chat-main
   .Chat-main__header
     .Chat-main__header__group
-      %p.Chat-main__header__group__name test
+      %p.Chat-main__header__group__name
+        = @group.name
       .Chat-main__header__group__member
         %p.Chat-main__header__group__member__headline Member：
-        %ul.Chat-main__header__group__member__list
-          %li.Chat-main__header__group__member__list__name masa
+        %ul.Chat-main__header__group__member__list 
+          - @group.users.each do |user|
+            %li.Chat-main__header__group__member__list__name
+              = user.name
     .Chat-main__header__edit
-      = link_to "#", class: "Chat-main__header__edit__btn" do
+      = link_to edit_group_path(@group), class: "Chat-main__header__edit__btn" do
         Edit
   .Chat-main__messages
-    .Chat-main__messages__message
-      .Chat-main__messages__message__title
-        %p.Chat-main__messages__message__title__name masa
-        %p.Chat-main__messages__message__title__date 2019/11/20(Wed) 17:43:01
-      %p.Chat-main__messages__message__content おはよう！
-    .Chat-main__messages__message
-      .Chat-main__messages__message__title
-        %p.Chat-main__messages__message__title__name masa
-        %p.Chat-main__messages__message__title__date 2019/11/20(Wed) 17:43:34
-      %p.Chat-main__messages__message__content 今日は夜から雨
+    = render @messages
   .Chat-main__footer
-    %form.Chat-main__footer__form
+    = form_with model: [@group, @message], html: {class: "Chat-main__footer__form"}, local: true do |f|
       .Chat-main__footer__form__content
-        %input.Chat-main__footer__form__content__message{"placeholder": "type a message", "type": "text"}
-        %label.Chat-main__footer__form__content__image
+        = f.text_field :content, class: 'Chat-main__footer__form__content__message', placeholder: 'type a message'
+        = f.label :image, class: 'Chat-main__footer__form__content__image' do
           =icon('far', 'image')
-          %input.Chat-main__footer__form__content__image__file{type: "file"}
-      %input.Chat-main__footer__form__send-btn{"type": "submit", "value": "Send"}
+          = f.file_field :image, class: 'Chat-main__footer__form__content__image__file'
+      = f.submit 'Send', class: 'Chat-main__footer__form__send-btn'

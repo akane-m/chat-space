@@ -34,8 +34,6 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'devise'
-  gem 'pry-rails'
   gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
@@ -67,6 +65,9 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'jquery-rails'
+
+gem 'devise'
+gem 'pry-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'

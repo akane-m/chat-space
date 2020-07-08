@@ -69,6 +69,8 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'pry-rails'
 
+gem 'fog-aws'
+
 group :production do
   gem 'unicorn', '5.4.1'
 end
